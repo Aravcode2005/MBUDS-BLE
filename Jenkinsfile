@@ -32,6 +32,8 @@ stage('Install Dependencies'){
 }
 stage('Run Tests'){
     steps{
+
+    sh
     '''
     echo 'We  performing the testing now '
     ping -c 1 http://localhost:8089/
