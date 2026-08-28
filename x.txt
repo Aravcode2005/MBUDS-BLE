@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     environment {
         APP_NAME = 'moodbuds'
         DOCKERFILE = 'Dockerfile'
@@ -8,13 +9,16 @@ pipeline {
         DOCKER_CERT_PATH = ''
         DOCKER_TLS_VERIFY = ''
     }
+
     stages {
         stage('Checkout') {
             steps {
                 echo 'Checking out source code'
                 checkout scm
             }
-         }
+          }
+
+
         stage('Verify Environment') {
             steps {
                 sh '''
@@ -31,6 +35,7 @@ pipeline {
                 sh 'npm ci'
             }
         }
+
         stage('Run Tests') {
             steps {
                 sh '''
@@ -39,6 +44,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 sh '''
@@ -51,6 +57,7 @@ pipeline {
             }
         }
     }
+}
 post{
     success{
    echo "CI built.Built ${APP_NAME}:${IMAGE_TAG}"
