@@ -1,0 +1,24 @@
+{
+  "name": "mbudsble",
+  "version": "1.0.0",
+  "description": "This is fallback prod package for Moodbuds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aravcode2005/MBUDS-BLE.git"
+  },
+  "author": "Arav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aravcode2005/MBUDS-BLE/issues"
+  },
+  "homepage": "https://github.com/Aravcode2005/MBUDS-BLE#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.4"
+  }
+}
