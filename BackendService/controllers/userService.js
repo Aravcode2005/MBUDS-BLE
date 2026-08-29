@@ -7,7 +7,6 @@ exports.getUserDashboard = (req, res) => {
 }
 exports.postbluetoothdata = (req, res, next) => {
     const  data  = req.body;
-
     if(typeof(data)===undefined){
         return res.status(500).json({
             message:'Interval server error'
