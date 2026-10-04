@@ -13,12 +13,10 @@ const authRoutes = require('./routes/authServiceroutes');
 const userRoutes = require('./routes/userServiceRoutes');
 const MongoStore = ConnectMongo.default || ConnectMongo.MongoStore || ConnectMongo;
 const imagesDir = path.join(__dirname, 'images');
-
 app.disable('x-powered-by');
 app.use((req, res, next) => {
     const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173';
     const requestOrigin = req.headers.origin;
-
     if (requestOrigin === allowedOrigin) {
         res.header('Access-Control-Allow-Origin', requestOrigin);
         res.header('Access-Control-Allow-Credentials', 'true');
@@ -26,7 +24,6 @@ app.use((req, res, next) => {
     }
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-
     if (req.method === 'OPTIONS') {
         return res.sendStatus(204);
     }
@@ -60,7 +57,7 @@ app.use('/images', express.static(imagesDir));
 const ConnectDB = require('./util/dataBase');
 const session = require('express-session');
 app.use(session({
-    secret: process.env.SECRET_KEY,
+    secret:"poerfpofpepokfpoepof",
     saveUninitialized: false,
     resave: false,
     store: MongoStore.create({
@@ -94,7 +91,7 @@ app.use((error, req, res, next) => {
             : error.message
     });
 });
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT || 8080);
 ConnectDB.then(() => {
     server.listen(PORT, () => {
         console.log(`Live at http://localhost:${PORT}`);

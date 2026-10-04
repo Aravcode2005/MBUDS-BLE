@@ -8,7 +8,7 @@ const Redis = require('ioredis')
 const twilio = require('twilio')
 const User = require('../models/UserModel')
 
-const redis = new Redis(process.env.REDIS_URL || 'redis://127.0.0.2:6379');
+const redis = new Redis(process.env.REDIS_URL || 'redis://6379:6379');
 redis.on('error', (error) => {
     console.error('Redis error:', error);
 })
